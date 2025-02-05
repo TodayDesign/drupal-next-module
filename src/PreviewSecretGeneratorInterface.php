@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 /**
  * Provides an interface for a preview secret generator.

@@ -7,9 +7,9 @@
 
 use Drupal\content_moderation\EntityOperations;
 use Drupal\Core\Entity\EntityInterface;
-use Today\next\Event\EntityActionEvent;
-use Today\next\Event\EntityActionEventInterface;
-use Today\next\Event\EntityEvents;
+use Drupal\next\Event\EntityActionEvent;
+use Drupal\next\Event\EntityActionEventInterface;
+use Drupal\next\Event\EntityEvents;
 
 /**
  * Implements hook_decoupled_router_info_alter().
@@ -37,7 +37,7 @@ function next_next_site_preview_alter(array &$preview, array $context) {
     return;
   }
 
-  /** @var \Today\next\Plugin\SitePreviewerInterface $plugin */
+  /** @var \Drupal\next\Plugin\SitePreviewerInterface $plugin */
   $plugin = $context['plugin'];
 
   if ($plugin->getId() !== 'iframe') {
@@ -91,7 +91,7 @@ function next_entity_predelete(EntityInterface $entity) {
 /**
  * Helper to dispatch an entity action event.
  *
- * @param \Today\next\Event\EntityActionEventInterface $event
+ * @param \Drupal\next\Event\EntityActionEventInterface $event
  *   The entity action event.
  */
 function _next_dispatch_entity_action_event(EntityActionEventInterface $event) {

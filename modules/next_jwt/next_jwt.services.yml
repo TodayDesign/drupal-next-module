@@ -1,10 +1,10 @@
 services:
   next_jwt.jwt_subscriber:
-    class: Today\next_jwt\EventSubscriber\JwtEventSubscriber
+    class: Drupal\next_jwt\EventSubscriber\JwtEventSubscriber
     arguments: [ '@current_user', '@next.settings.manager' ]
     tags:
       - { name: event_subscriber }
   next_jwt.route_subscriber:
-    class: Today\next_jwt\Routing\RouteSubscriber
+    class: Drupal\next_jwt\Routing\RouteSubscriber
     tags:
       - { name: event_subscriber }

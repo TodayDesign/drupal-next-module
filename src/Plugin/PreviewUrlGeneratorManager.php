@@ -1,11 +1,11 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
-use Today\next\Annotation\PreviewUrlGenerator;
+use Drupal\next\Annotation\PreviewUrlGenerator;
 
 /**
  * Plugin manager for preview_url_generator plugins.

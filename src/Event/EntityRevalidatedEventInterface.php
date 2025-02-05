@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Event;
+namespace Drupal\next\Event;
 
 /**
  * Defines an interface for entity revalidated events.
@@ -13,7 +13,7 @@ interface EntityRevalidatedEventInterface extends EntityActionEventInterface {
    * @param bool $revalidated
    *   The revalidated value.
    *
-   * @return \Today\next\Event\EntityRevalidatedEventInterface
+   * @return \Drupal\next\Event\EntityRevalidatedEventInterface
    *   The entity revalidated event.
    */
   public function setRevalidated(bool $revalidated): self;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next_jwt\Plugin\Next\PreviewUrlGenerator;
+namespace Drupal\next_jwt\Plugin\Next\PreviewUrlGenerator;
 
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Serialization\Json;
@@ -11,11 +11,11 @@ use Drupal\Core\KeyValueStore\KeyValueExpirableFactoryInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
 use Drupal\jwt\Authentication\Provider\JwtAuth;
-use Today\next\Annotation\PreviewUrlGenerator;
-use Today\next\Entity\NextSiteInterface;
-use Today\next\Exception\InvalidPreviewUrlRequest;
-use Today\next\Plugin\ConfigurablePreviewUrlGeneratorBase;
-use Today\next\PreviewSecretGeneratorInterface;
+use Drupal\next\Annotation\PreviewUrlGenerator;
+use Drupal\next\Entity\NextSiteInterface;
+use Drupal\next\Exception\InvalidPreviewUrlRequest;
+use Drupal\next\Plugin\ConfigurablePreviewUrlGeneratorBase;
+use Drupal\next\PreviewSecretGeneratorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -65,7 +65,7 @@ class Jwt extends ConfigurablePreviewUrlGeneratorBase {
    *   The current user.
    * @param \Drupal\Component\Datetime\TimeInterface $time
    *   The time service.
-   * @param \Today\next\PreviewSecretGeneratorInterface $preview_secret_generator
+   * @param \Drupal\next\PreviewSecretGeneratorInterface $preview_secret_generator
    *   The preview secret generator.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.

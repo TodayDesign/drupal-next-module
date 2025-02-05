@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next_jsonapi;
+namespace Drupal\next_jsonapi;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\DependencyInjection\ServiceProviderBase;
@@ -18,7 +18,7 @@ class NextJsonapiServiceProvider extends ServiceProviderBase {
 
     if ($container->hasDefinition('jsonapi.entity_resource')) {
       $definition = $container->getDefinition('jsonapi.entity_resource');
-      $definition->setClass('Today\next_jsonapi\Controller\EntityResource');
+      $definition->setClass('Drupal\next_jsonapi\Controller\EntityResource');
     }
   }
 

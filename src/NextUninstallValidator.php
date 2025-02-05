@@ -1,11 +1,11 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 use Drupal\Core\Extension\ModuleUninstallValidatorInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
-use Today\next\Plugin\PreviewUrlGeneratorManagerInterface;
+use Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface;
 
 /**
  * Prevents module with active preview url generators from being uninstalled.
@@ -17,23 +17,23 @@ class NextUninstallValidator implements ModuleUninstallValidatorInterface {
   /**
    * The plugin manager.
    *
-   * @var \Today\next\Plugin\PreviewUrlGeneratorManagerInterface
+   * @var \Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface
    */
   protected PreviewUrlGeneratorManagerInterface $previewUrlGeneratorManager;
 
   /**
    * The next settings manager.
    *
-   * @var \Today\next\NextSettingsManagerInterface
+   * @var \Drupal\next\NextSettingsManagerInterface
    */
   protected NextSettingsManagerInterface $nextSettings;
 
   /**
    * NextUninstallValidator constructor.
    *
-   * @param \Today\next\Plugin\PreviewUrlGeneratorManagerInterface $preview_url_generator_manager
+   * @param \Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface $preview_url_generator_manager
    *   The plugin manager.
-   * @param \Today\next\NextSettingsManagerInterface $next_settings
+   * @param \Drupal\next\NextSettingsManagerInterface $next_settings
    *   The next settings service.
    */
   public function __construct(PreviewUrlGeneratorManagerInterface $preview_url_generator_manager, NextSettingsManagerInterface $next_settings) {

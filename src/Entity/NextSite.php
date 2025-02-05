@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Entity;
+namespace Drupal\next\Entity;
 
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Config\Entity\ConfigEntityBase;
@@ -23,14 +23,14 @@ use Drupal\Core\Url;
  *     plural = "@count Next.js sites",
  *   ),
  *   handlers = {
- *     "list_builder" = "Today\next\NextSiteListBuilder",
+ *     "list_builder" = "Drupal\next\NextSiteListBuilder",
  *     "form" = {
- *       "add" = "Today\next\Form\NextSiteForm",
- *       "edit" = "Today\next\Form\NextSiteForm",
- *       "delete" = "Today\next\Form\NextSiteDeleteForm"
+ *       "add" = "Drupal\next\Form\NextSiteForm",
+ *       "edit" = "Drupal\next\Form\NextSiteForm",
+ *       "delete" = "Drupal\next\Form\NextSiteDeleteForm"
  *     },
  *     "route_provider" = {
- *       "html" = "Today\next\Routing\NextSiteHtmlRouteProvider"
+ *       "html" = "Drupal\next\Routing\NextSiteHtmlRouteProvider"
  *     },
  *   },
  *   config_prefix = "next_site",
@@ -184,7 +184,7 @@ class NextSite extends ConfigEntityBase implements NextSiteInterface {
 
     // Handle revisionable entity types.
     $resource_version = NULL;
-    /** @var \Today\next\NextEntityTypeManagerInterface $next_entity_type_manager */
+    /** @var \Drupal\next\NextEntityTypeManagerInterface $next_entity_type_manager */
     $next_entity_type_manager = \Drupal::service('next.entity_type.manager');
     if ($next_entity_type_manager->isEntityRevisionable($entity)) {
       /** @var \Drupal\Core\Entity\RevisionableInterface $entity */
@@ -212,7 +212,7 @@ class NextSite extends ConfigEntityBase implements NextSiteInterface {
     }
 
     // TODO: Extract this to a service.
-    /** @var \Today\next\NextSettingsManagerInterface $next_settings */
+    /** @var \Drupal\next\NextSettingsManagerInterface $next_settings */
     $next_settings = \Drupal::service('next.settings.manager');
     $preview_url_generator = $next_settings->getPreviewUrlGenerator();
     if (!$preview_url_generator) {

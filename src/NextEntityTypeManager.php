@@ -1,13 +1,13 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
-use Today\next\Entity\NextEntityTypeConfigInterface;
-use Today\next\Plugin\RevalidatorInterface;
-use Today\next\Plugin\SiteResolverInterface;
+use Drupal\next\Entity\NextEntityTypeConfigInterface;
+use Drupal\next\Plugin\RevalidatorInterface;
+use Drupal\next\Plugin\SiteResolverInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -38,7 +38,7 @@ class NextEntityTypeManager implements NextEntityTypeManagerInterface {
   public function getConfigForEntityType(string $entity_type_id, string $bundle): ?NextEntityTypeConfigInterface {
     $id = sprintf('%s.%s', $entity_type_id, $bundle);
 
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $next_entity_type_config */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $next_entity_type_config */
     $next_entity_type_config = $this->entityTypeManager->getStorage('next_entity_type_config')->load($id);
 
     return $next_entity_type_config;

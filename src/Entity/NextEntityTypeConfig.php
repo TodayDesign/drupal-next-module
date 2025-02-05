@@ -1,13 +1,13 @@
 <?php
 
-namespace Today\next\Entity;
+namespace Drupal\next\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 use Drupal\Core\Entity\EntityInterface;
-use Today\next\Plugin\RevalidatorInterface;
-use Today\next\Plugin\SiteResolverInterface;
-use Today\next\RevalidatorPluginCollection;
-use Today\next\SiteResolverPluginCollection;
+use Drupal\next\Plugin\RevalidatorInterface;
+use Drupal\next\Plugin\SiteResolverInterface;
+use Drupal\next\RevalidatorPluginCollection;
+use Drupal\next\SiteResolverPluginCollection;
 
 /**
  * Defines the next_entity_type config entity.
@@ -23,11 +23,11 @@ use Today\next\SiteResolverPluginCollection;
  *     plural = "@count Next.js entity types",
  *   ),
  *   handlers = {
- *     "list_builder" = "Today\next\NextEntityTypeConfigListBuilder",
+ *     "list_builder" = "Drupal\next\NextEntityTypeConfigListBuilder",
  *     "form" = {
- *       "add" = "Today\next\Form\NextEntityTypeConfigForm",
- *       "edit" = "Today\next\Form\NextEntityTypeConfigForm",
- *       "delete" = "Today\next\Form\NextEntityTypeConfigDeleteForm"
+ *       "add" = "Drupal\next\Form\NextEntityTypeConfigForm",
+ *       "edit" = "Drupal\next\Form\NextEntityTypeConfigForm",
+ *       "delete" = "Drupal\next\Form\NextEntityTypeConfigDeleteForm"
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider"
@@ -96,14 +96,14 @@ class NextEntityTypeConfig extends ConfigEntityBase implements NextEntityTypeCon
   /**
    * The plugin collection that stores site_resolver plugins.
    *
-   * @var \Today\next\SiteResolverPluginCollection
+   * @var \Drupal\next\SiteResolverPluginCollection
    */
   protected $pluginCollection;
 
   /**
    * The plugin collection that stores revalidator plugins.
    *
-   * @var \Today\next\SiteResolverPluginCollection
+   * @var \Drupal\next\SiteResolverPluginCollection
    */
   protected $revalidatorPluginCollection;
 
@@ -244,7 +244,7 @@ class NextEntityTypeConfig extends ConfigEntityBase implements NextEntityTypeCon
   /**
    * Wraps the site_resolver plugin manager.
    *
-   * @return \Today\next\Plugin\SiteResolverManagerInterface
+   * @return \Drupal\next\Plugin\SiteResolverManagerInterface
    *   A site_resolver plugin manager object.
    */
   protected function siteResolverPluginManager() {
@@ -254,7 +254,7 @@ class NextEntityTypeConfig extends ConfigEntityBase implements NextEntityTypeCon
   /**
    * Wraps the revalidator plugin manager.
    *
-   * @return \Today\next\Plugin\RevalidatorManagerInterface
+   * @return \Drupal\next\Plugin\RevalidatorManagerInterface
    *   A revalidator plugin manager object.
    */
   protected function revalidatorPluginManager() {

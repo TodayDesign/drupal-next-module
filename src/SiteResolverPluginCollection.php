@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 use Drupal\Component\Plugin\PluginManagerInterface;
 use Drupal\Core\Plugin\DefaultSingleLazyPluginCollection;

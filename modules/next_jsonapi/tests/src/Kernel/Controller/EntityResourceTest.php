@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @coversDefaultClass \Today\next_jsonapi\Controller\EntityResource
+ * @coversDefaultClass \Drupal\next_jsonapi\Controller\EntityResource
  *
  * @group next
  */
@@ -71,7 +71,7 @@ class EntityResourceTest extends KernelTestBase {
     $container->setParameter('next_jsonapi.size_max', 60);
     if ($container->hasDefinition('jsonapi.entity_resource')) {
       $definition = $container->getDefinition('jsonapi.entity_resource');
-      $definition->setClass('Today\next_jsonapi\Controller\EntityResource')
+      $definition->setClass('Drupal\next_jsonapi\Controller\EntityResource')
         ->addArgument('%next_jsonapi.size_max%');
     }
   }
@@ -82,7 +82,7 @@ class EntityResourceTest extends KernelTestBase {
    * @covers ::getJsonApiParams
    */
   public function testPageLimit() {
-    /** @var \Today\next_jsonapi\Controller\EntityResource $entity_resource */
+    /** @var \Drupal\next_jsonapi\Controller\EntityResource $entity_resource */
     $entity_resource = $this->container->get('jsonapi.entity_resource');
     /** @var \Drupal\jsonapi\ResourceType\ResourceTypeRepositoryInterface $entity_type_repository */
     $entity_type_repository = $this->container->get('jsonapi.resource_type.repository');

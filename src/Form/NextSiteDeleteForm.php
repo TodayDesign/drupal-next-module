@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Form;
+namespace Drupal\next\Form;
 
 use Drupal\Core\Entity\EntityDeleteForm;
 use Drupal\Core\Url;

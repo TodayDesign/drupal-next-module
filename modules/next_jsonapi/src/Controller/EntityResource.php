@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next_jsonapi\Controller;
+namespace Drupal\next_jsonapi\Controller;
 
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Entity\EntityFieldManagerInterface;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Today\next_tests\EventSubscriber;
+namespace Drupal\next_tests\EventSubscriber;
 
 use Drupal\Core\Logger\LoggerChannelInterface;
-use Today\next\Event\EntityActionEvent;
-use Today\next\Event\EntityEvents;
+use Drupal\next\Event\EntityActionEvent;
+use Drupal\next\Event\EntityEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -40,7 +40,7 @@ class EntityActionEventSubscriber implements EventSubscriberInterface {
   /**
    * Logs the event.
    *
-   * @param \Today\next\Event\EntityActionEvent $event
+   * @param \Drupal\next\Event\EntityActionEvent $event
    *   The event.
    */
   public function onAction(EntityActionEvent $event) {

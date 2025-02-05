@@ -1,11 +1,11 @@
 <?php
 
-namespace Today\next\Controller;
+namespace Drupal\next\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
-use Today\next\Exception\InvalidPreviewUrlRequest;
-use Today\next\NextSettingsManagerInterface;
+use Drupal\next\Exception\InvalidPreviewUrlRequest;
+use Drupal\next\NextSettingsManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +21,7 @@ class NextPreviewUrlController extends ControllerBase implements ContainerInject
   /**
    * The next settings manager.
    *
-   * @var \Today\next\NextSettingsManagerInterface
+   * @var \Drupal\next\NextSettingsManagerInterface
    */
   protected NextSettingsManagerInterface $nextSettings;
 
@@ -35,7 +35,7 @@ class NextPreviewUrlController extends ControllerBase implements ContainerInject
   /**
    * NextPreviewUrlController constructor.
    *
-   * @param \Today\next\NextSettingsManagerInterface $next_settings
+   * @param \Drupal\next\NextSettingsManagerInterface $next_settings
    *   The next settings manager.
    */
   public function __construct(NextSettingsManagerInterface $next_settings) {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Today\next\Event;
+namespace Drupal\next\Event;
 
 use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Defines an entity revalidated event.
  *
- * @see \Today\next\Event\EntityEvents
+ * @see \Drupal\next\Event\EntityEvents
  */
 class EntityRevalidatedEvent extends EntityActionEvent implements EntityRevalidatedEventInterface {
 
@@ -21,10 +21,10 @@ class EntityRevalidatedEvent extends EntityActionEvent implements EntityRevalida
   /**
    * Helper to create an entity action event.
    *
-   * @param \Today\next\Event\EntityActionEventInterface $event
+   * @param \Drupal\next\Event\EntityActionEventInterface $event
    *   The entity action event.
    *
-   * @return \Today\next\Event\EntityRevalidatedEvent
+   * @return \Drupal\next\Event\EntityRevalidatedEvent
    *   An instance of entity action event.
    */
   public static function createFromEntityActionEvent(EntityActionEventInterface $event): self {

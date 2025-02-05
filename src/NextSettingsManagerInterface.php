@@ -1,10 +1,10 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 use Drupal\Core\Config\ImmutableConfig;
-use Today\next\Plugin\PreviewUrlGeneratorInterface;
-use Today\next\Plugin\SitePreviewerInterface;
+use Drupal\next\Plugin\PreviewUrlGeneratorInterface;
+use Drupal\next\Plugin\SitePreviewerInterface;
 
 /**
  * Defines the interface for a next settings service.
@@ -41,7 +41,7 @@ interface NextSettingsManagerInterface {
   /**
    * Returns the selected site previewer plugin.
    *
-   * @return \Today\next\Plugin\SitePreviewerInterface|null
+   * @return \Drupal\next\Plugin\SitePreviewerInterface|null
    *   The selected site previewer plugin.
    */
   public function getSitePreviewer(): ?SitePreviewerInterface;
@@ -49,7 +49,7 @@ interface NextSettingsManagerInterface {
   /**
    * Returns the selected preview url generator plugin.
    *
-   * @return \Today\next\Plugin\PreviewUrlGeneratorInterface|null
+   * @return \Drupal\next\Plugin\PreviewUrlGeneratorInterface|null
    *   The selected preview url generator plugin.
    */
   public function getPreviewUrlGenerator(): ?PreviewUrlGeneratorInterface;

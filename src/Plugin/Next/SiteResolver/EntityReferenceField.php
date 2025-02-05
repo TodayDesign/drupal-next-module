@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Plugin\Next\SiteResolver;
+namespace Drupal\next\Plugin\Next\SiteResolver;
 
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityInterface;
@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\SubformStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Today\next\Plugin\ConfigurableSiteResolverBase;
+use Drupal\next\Plugin\ConfigurableSiteResolverBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -88,7 +88,7 @@ class EntityReferenceField extends ConfigurableSiteResolverBase implements Conta
       $form_state = $form_state->getCompleteFormState();
     }
 
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity */
     $entity = $form_state->getFormObject()->getEntity();
     if (!$entity) {
       $form['status'] = [

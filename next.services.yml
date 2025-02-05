@@ -1,21 +1,21 @@
 services:
   plugin.manager.next.site_resolver:
-    class: Today\next\Plugin\SiteResolverManager
+    class: Drupal\next\Plugin\SiteResolverManager
     parent: default_plugin_manager
   plugin.manager.next.site_previewer:
-    class: Today\next\Plugin\SitePreviewerManager
+    class: Drupal\next\Plugin\SitePreviewerManager
     parent: default_plugin_manager
   plugin.manager.next.preview_url_generator:
-    class: Today\next\Plugin\PreviewUrlGeneratorManager
+    class: Drupal\next\Plugin\PreviewUrlGeneratorManager
     parent: default_plugin_manager
   plugin.manager.next.revalidator:
-    class: Today\next\Plugin\RevalidatorManager
+    class: Drupal\next\Plugin\RevalidatorManager
     parent: default_plugin_manager
   next.entity_type.manager:
-    class: Today\next\NextEntityTypeManager
+    class: Drupal\next\NextEntityTypeManager
     arguments: ["@entity_type.manager"]
   next.settings.manager:
-    class: Today\next\NextSettingsManager
+    class: Drupal\next\NextSettingsManager
     arguments:
       [
         "@config.factory",
@@ -23,10 +23,10 @@ services:
         "@plugin.manager.next.preview_url_generator",
       ]
   next.preview_secret_generator:
-    class: Today\next\PreviewSecretGenerator
+    class: Drupal\next\PreviewSecretGenerator
     arguments: ["@private_key"]
   next.main_content_renderer.html:
-    class: Today\next\Render\MainContent\HtmlRenderer
+    class: Drupal\next\Render\MainContent\HtmlRenderer
     decorates: main_content_renderer.html
     arguments:
       [
@@ -45,7 +45,7 @@ services:
     tags:
       - { name: render.main_content_renderer, format: html }
   next.uninstall_validator:
-    class: Today\next\NextUninstallValidator
+    class: Drupal\next\NextUninstallValidator
     tags:
       - { name: module_install.uninstall_validator }
     arguments:
@@ -55,7 +55,7 @@ services:
     parent: logger.channel_base
     arguments: ["next"]
   next.entity_action_event_revalidate_subscriber:
-    class: Today\next\EventSubscriber\EntityActionEventRevalidateSubscriber
+    class: Drupal\next\EventSubscriber\EntityActionEventRevalidateSubscriber
     arguments:
       [
         "@next.entity_type.manager",

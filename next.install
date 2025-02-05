@@ -39,7 +39,7 @@ function next_update_9102() {
  * Sets a revalidate url and secret for all Next.js sites.
  */
 function next_update_9103() {
-  /** @var \Today\next\Entity\NextSiteInterface[] $sites */
+  /** @var \Drupal\next\Entity\NextSiteInterface[] $sites */
   $sites = \Drupal::entityTypeManager()->getStorage('next_site')->loadMultiple();
   foreach ($sites as $site) {
     $base_url = $site->getBaseUrl();
@@ -74,7 +74,7 @@ function next_update_9104() {
  * Migrate revalidate settings from next_extras.
  */
 function next_update_9105() {
-  /** @var \Today\next\Entity\NextEntityTypeConfigInterface[] $next_entity_type_configs */
+  /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface[] $next_entity_type_configs */
   $next_entity_type_configs = \Drupal::entityTypeManager()->getStorage('next_entity_type_config')->loadMultiple();
 
   foreach ($next_entity_type_configs as $next_entity_type_config) {

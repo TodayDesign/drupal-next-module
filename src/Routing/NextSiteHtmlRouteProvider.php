@@ -1,10 +1,10 @@
 <?php
 
-namespace Today\next\Routing;
+namespace Drupal\next\Routing;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
-use Today\next\Controller\NextSiteEntityController;
+use Drupal\next\Controller\NextSiteEntityController;
 use Symfony\Component\Routing\Route;
 
 /**

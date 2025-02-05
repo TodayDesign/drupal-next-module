@@ -1,16 +1,16 @@
 <?php
 
-namespace Today\next\EventSubscriber;
+namespace Drupal\next\EventSubscriber;
 
-use Today\next\Event\EntityActionEvent;
-use Today\next\Event\EntityEvents;
-use Today\next\Event\EntityRevalidatedEvent;
+use Drupal\next\Event\EntityActionEvent;
+use Drupal\next\Event\EntityEvents;
+use Drupal\next\Event\EntityRevalidatedEvent;
 
 /**
  * Defines an event subscriber for revalidating entity.
  *
- * @see \Today\next\Event\EntityActionEvent
- * @see \Today\next\EntityEventDispatcher
+ * @see \Drupal\next\Event\EntityActionEvent
+ * @see \Drupal\next\EntityEventDispatcher
  */
 class EntityActionEventRevalidateSubscriber extends EntityActionEventSubscriberBase {
 
@@ -25,7 +25,7 @@ class EntityActionEventRevalidateSubscriber extends EntityActionEventSubscriberB
   /**
    * Revalidates the entity.
    *
-   * @param \Today\next\Event\EntityActionEvent $event
+   * @param \Drupal\next\Event\EntityActionEvent $event
    *   The event.
    */
   public function onAction(EntityActionEvent $event) {

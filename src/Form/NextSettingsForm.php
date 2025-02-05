@@ -1,15 +1,15 @@
 <?php
 
-namespace Today\next\Form;
+namespace Drupal\next\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\SubformState;
-use Today\next\Plugin\ConfigurableSitePreviewerInterface;
-use Today\next\Plugin\ConfigurablePreviewUrlGeneratorInterface;
-use Today\next\Plugin\SitePreviewerManagerInterface;
-use Today\next\Plugin\PreviewUrlGeneratorManagerInterface;
+use Drupal\next\Plugin\ConfigurableSitePreviewerInterface;
+use Drupal\next\Plugin\ConfigurablePreviewUrlGeneratorInterface;
+use Drupal\next\Plugin\SitePreviewerManagerInterface;
+use Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -20,14 +20,14 @@ class NextSettingsForm extends ConfigFormBase {
   /**
    * The site previewer manager.
    *
-   * @var \Today\next\Plugin\SitePreviewerManagerInterface
+   * @var \Drupal\next\Plugin\SitePreviewerManagerInterface
    */
   protected $sitePreviewerManager;
 
   /**
    * The preview url generator manager.
    *
-   * @var \Today\next\Plugin\PreviewUrlGeneratorManagerInterface
+   * @var \Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface
    */
   protected PreviewUrlGeneratorManagerInterface $previewUrlGeneratorManager;
 
@@ -36,9 +36,9 @@ class NextSettingsForm extends ConfigFormBase {
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory service.
-   * @param \Today\next\Plugin\SitePreviewerManagerInterface $site_previewer_manager
+   * @param \Drupal\next\Plugin\SitePreviewerManagerInterface $site_previewer_manager
    *   The site previewer manager.
-   * @param \Today\next\Plugin\PreviewUrlGeneratorManagerInterface $preview_url_generator_manager
+   * @param \Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface $preview_url_generator_manager
    *   The preview url generator manager.
    */
   public function __construct(ConfigFactoryInterface $config_factory, SitePreviewerManagerInterface $site_previewer_manager, PreviewUrlGeneratorManagerInterface $preview_url_generator_manager = NULL) {

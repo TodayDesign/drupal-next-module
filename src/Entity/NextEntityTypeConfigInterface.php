@@ -1,14 +1,14 @@
 <?php
 
-namespace Today\next\Entity;
+namespace Drupal\next\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityWithPluginCollectionInterface;
-use Today\next\Plugin\RevalidatorInterface;
-use Today\next\Plugin\SiteResolverInterface;
-use Today\next\RevalidatorPluginCollection;
-use Today\next\SiteResolverPluginCollection;
+use Drupal\next\Plugin\RevalidatorInterface;
+use Drupal\next\Plugin\SiteResolverInterface;
+use Drupal\next\RevalidatorPluginCollection;
+use Drupal\next\SiteResolverPluginCollection;
 
 /**
  * Provides an interface for next_entity_type_config entity definitions.
@@ -18,7 +18,7 @@ interface NextEntityTypeConfigInterface extends ConfigEntityInterface, EntityWit
   /**
    * Returns the site_resolver plugin.
    *
-   * @return \Today\next\Plugin\SiteResolverInterface|null
+   * @return \Drupal\next\Plugin\SiteResolverInterface|null
    *   The site_resolver plugin used by this entity.
    */
   public function getSiteResolver(): ?SiteResolverInterface;
@@ -29,7 +29,7 @@ interface NextEntityTypeConfigInterface extends ConfigEntityInterface, EntityWit
    * @param string $plugin_id
    *   The site_resolver plugin ID.
    *
-   * @return \Today\next\Entity\NextEntityTypeConfigInterface
+   * @return \Drupal\next\Entity\NextEntityTypeConfigInterface
    *   The next_entity_type_config entity.
    */
   public function setSiteResolver(string $plugin_id): self;
@@ -37,7 +37,7 @@ interface NextEntityTypeConfigInterface extends ConfigEntityInterface, EntityWit
   /**
    * Returns the revalidator plugin.
    *
-   * @return \Today\next\Plugin\Next\Revalidator\|null
+   * @return \Drupal\next\Plugin\Next\Revalidator\|null
    *   The revalidator plugin used by this entity.
    */
   public function getRevalidator(): ?RevalidatorInterface;
@@ -48,7 +48,7 @@ interface NextEntityTypeConfigInterface extends ConfigEntityInterface, EntityWit
    * @param string $plugin_id
    *   The revalidator plugin ID.
    *
-   * @return \Today\next\Entity\NextEntityTypeConfigInterface
+   * @return \Drupal\next\Entity\NextEntityTypeConfigInterface
    *   The next_entity_type_config entity.
    */
   public function setRevalidator(string $plugin_id): self;
@@ -67,7 +67,7 @@ interface NextEntityTypeConfigInterface extends ConfigEntityInterface, EntityWit
    * @param array $configuration
    *   A configuration array.
    *
-   * @return \Today\next\Entity\NextEntityTypeConfigInterface
+   * @return \Drupal\next\Entity\NextEntityTypeConfigInterface
    *   The next_entity_type_config entity.
    */
   public function setConfiguration(array $configuration): self;
@@ -88,7 +88,7 @@ interface NextEntityTypeConfigInterface extends ConfigEntityInterface, EntityWit
    * @param array $configuration
    *   A configuration array.
    *
-   * @return \Today\next\Entity\NextEntityTypeConfigInterface
+   * @return \Drupal\next\Entity\NextEntityTypeConfigInterface
    *   The next_entity_type_config entity.
    */
   public function setSiteResolverConfiguration(string $id, array $configuration): self;
@@ -109,7 +109,7 @@ interface NextEntityTypeConfigInterface extends ConfigEntityInterface, EntityWit
    * @param array $configuration
    *   A configuration array.
    *
-   * @return \Today\next\Entity\NextEntityTypeConfigInterface
+   * @return \Drupal\next\Entity\NextEntityTypeConfigInterface
    *   The next_entity_type_config entity.
    */
   public function setRevalidatorConfiguration(string $id, array $configuration): self;

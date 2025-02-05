@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Render\MainContent;
+namespace Drupal\next\Render\MainContent;
 
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Component\Plugin\PluginManagerInterface;
@@ -12,8 +12,8 @@ use Drupal\Core\Render\RenderCacheInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Theme\ThemeManagerInterface;
-use Today\next\NextEntityTypeManager;
-use Today\next\Plugin\SitePreviewerManagerInterface;
+use Drupal\next\NextEntityTypeManager;
+use Drupal\next\Plugin\SitePreviewerManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -32,14 +32,14 @@ class HtmlRenderer extends CoreHtmlRenderer {
   /**
    * The next entity type manager.
    *
-   * @var \Today\next\NextEntityTypeManager
+   * @var \Drupal\next\NextEntityTypeManager
    */
   protected $nextEntityTypeManager;
 
   /**
    * The site previewer manager.
    *
-   * @var \Today\next\Plugin\SitePreviewerManagerInterface
+   * @var \Drupal\next\Plugin\SitePreviewerManagerInterface
    */
   protected $sitePreviewerManager;
 
@@ -69,9 +69,9 @@ class HtmlRenderer extends CoreHtmlRenderer {
    *   The renderer configuration array.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory.
-   * @param \Today\next\NextEntityTypeManager $next_entity_type_manager
+   * @param \Drupal\next\NextEntityTypeManager $next_entity_type_manager
    *   The Next entity type manager.
-   * @param \Today\next\Plugin\SitePreviewerManagerInterface $site_previewer_manager
+   * @param \Drupal\next\Plugin\SitePreviewerManagerInterface $site_previewer_manager
    *   The site previewer manager.
    * @param \Drupal\Core\Theme\ThemeManagerInterface $theme_manager
    *   The theme manager.
@@ -119,7 +119,7 @@ class HtmlRenderer extends CoreHtmlRenderer {
 
     $config = $this->configFactory->get('next.settings');
     $site_previewer_id = $config->get('site_previewer');
-    /** @var \Today\next\Plugin\SitePreviewerInterface $site_previewer */
+    /** @var \Drupal\next\Plugin\SitePreviewerInterface $site_previewer */
     $site_previewer = $this->sitePreviewerManager->createInstance($site_previewer_id, $config->get('site_previewer_configuration') ?? []);
     if (!$site_previewer) {
       throw new PluginNotFoundException('Invalid site previewer.');

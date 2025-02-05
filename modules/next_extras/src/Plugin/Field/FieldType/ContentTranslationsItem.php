@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next_extras\Plugin\Field\FieldType;
+namespace Drupal\next_extras\Plugin\Field\FieldType;
 
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
@@ -14,7 +14,7 @@ use Drupal\Core\TypedData\DataDefinition;
  *   label = @Translation("Content translations"),
  *   description = @Translation("An entity field containing data about content translations."),
  *   no_ui = TRUE,
- *   list_class = "\Today\next_extras\Plugin\Field\FieldType\ContentTranslationsFieldItemList",
+ *   list_class = "\Drupal\next_extras\Plugin\Field\FieldType\ContentTranslationsFieldItemList",
  *   cardinality = \Drupal\Core\Field\FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED
  * )
  */

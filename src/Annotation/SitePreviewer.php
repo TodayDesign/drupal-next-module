@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Annotation;
+namespace Drupal\next\Annotation;
 
 use Drupal\Component\Annotation\Plugin;
 

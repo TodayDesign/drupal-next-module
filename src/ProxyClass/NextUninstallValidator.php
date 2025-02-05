@@ -2,13 +2,13 @@
 // phpcs:ignoreFile
 
 /**
- * This file was generated via php core/scripts/generate-proxy-class.php 'Today\next\NextUninstallValidator' "web/modules/contrib/next/src".
+ * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\next\NextUninstallValidator' "web/modules/contrib/next/src".
  */
 
-namespace Today\next\ProxyClass {
+namespace Drupal\next\ProxyClass {
 
     /**
-     * Provides a proxy class for \Today\next\NextUninstallValidator.
+     * Provides a proxy class for \Drupal\next\NextUninstallValidator.
      *
      * @see \Drupal\Component\ProxyBuilder
      */
@@ -27,7 +27,7 @@ namespace Today\next\ProxyClass {
         /**
          * The real proxied service, after it was lazy loaded.
          *
-         * @var \Today\next\NextUninstallValidator
+         * @var \Drupal\next\NextUninstallValidator
          */
         protected $service;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Plugin\PluginBase;
 use Drupal\Core\Session\AccountProxyInterface;
-use Today\next\PreviewSecretGeneratorInterface;
+use Drupal\next\PreviewSecretGeneratorInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -32,7 +32,7 @@ abstract class PreviewUrlGeneratorBase extends PluginBase implements PreviewUrlG
   /**
    * The preview secret generator.
    *
-   * @var \Today\next\PreviewSecretGeneratorInterface
+   * @var \Drupal\next\PreviewSecretGeneratorInterface
    */
   protected PreviewSecretGeneratorInterface $previewSecretGenerator;
 
@@ -56,7 +56,7 @@ abstract class PreviewUrlGeneratorBase extends PluginBase implements PreviewUrlG
    *   The current user.
    * @param \Drupal\Component\Datetime\TimeInterface $time
    *   The time service.
-   * @param \Today\next\PreviewSecretGeneratorInterface $preview_secret_generator
+   * @param \Drupal\next\PreviewSecretGeneratorInterface $preview_secret_generator
    *   The preview secret generator.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.

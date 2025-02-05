@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Exception;
+namespace Drupal\next\Exception;
 
 /**
  * Invalid preview url request exception.

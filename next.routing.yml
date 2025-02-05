@@ -1,7 +1,7 @@
 next.settings:
   path: "/admin/config/services/next/settings"
   defaults:
-    _form: '\Today\next\Form\NextSettingsForm'
+    _form: '\Drupal\next\Form\NextSettingsForm'
     _title: "Settings"
   requirements:
     _permission: "administer site configuration"
@@ -11,7 +11,7 @@ next.settings:
 next.validate_preview_url:
   path: "/next/preview-url"
   defaults:
-    _controller: 'Today\next\Controller\NextPreviewUrlController::validate'
+    _controller: 'Drupal\next\Controller\NextPreviewUrlController::validate'
   methods: [ POST ]
   requirements:
     _access: 'TRUE'

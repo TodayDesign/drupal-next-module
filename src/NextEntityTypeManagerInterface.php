@@ -1,12 +1,12 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
-use Today\next\Entity\NextEntityTypeConfigInterface;
-use Today\next\Plugin\RevalidatorInterface;
-use Today\next\Plugin\SiteResolverInterface;
+use Drupal\next\Entity\NextEntityTypeConfigInterface;
+use Drupal\next\Plugin\RevalidatorInterface;
+use Drupal\next\Plugin\SiteResolverInterface;
 
 /**
  * Defines an interface for next entity type manager service.
@@ -21,7 +21,7 @@ interface NextEntityTypeManagerInterface {
    * @param string $bundle
    *   The bundle.
    *
-   * @return \Today\next\Entity\NextEntityTypeConfigInterface|null
+   * @return \Drupal\next\Entity\NextEntityTypeConfigInterface|null
    *   The next_entity_type_config entity.
    */
   public function getConfigForEntityType(string $entity_type_id, string $bundle): ?NextEntityTypeConfigInterface;
@@ -62,7 +62,7 @@ interface NextEntityTypeManagerInterface {
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity.
    *
-   * @return \Today\next\Entity\NextSiteInterface[]
+   * @return \Drupal\next\Entity\NextSiteInterface[]
    *   An array of next sites.
    */
   public function getSitesForEntity(EntityInterface $entity): array;
@@ -73,7 +73,7 @@ interface NextEntityTypeManagerInterface {
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity.
    *
-   * @return \Today\next\Plugin\SiteResolverInterface|null
+   * @return \Drupal\next\Plugin\SiteResolverInterface|null
    *   The site_resolver plugin if set.
    */
   public function getSiteResolver(EntityInterface $entity): ?SiteResolverInterface;
@@ -84,7 +84,7 @@ interface NextEntityTypeManagerInterface {
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity.
    *
-   * @return \Today\next\Plugin\RevalidatorInterface|null
+   * @return \Drupal\next\Plugin\RevalidatorInterface|null
    *   The revalidator plugin if set.
    */
   public function getRevalidator(EntityInterface $entity): ?RevalidatorInterface;

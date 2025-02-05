@@ -3,8 +3,8 @@
 namespace Drupal\Tests\next\Kernel\Renderer\MainContent;
 
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Entity\NextEntityTypeConfig;
-use Today\next\Entity\NextSite;
+use Drupal\next\Entity\NextEntityTypeConfig;
+use Drupal\next\Entity\NextSite;
 use Drupal\node\Entity\NodeType;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 use Drupal\Tests\user\Traits\UserCreationTrait;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Tests the HTMLRenderer for preview.
  *
- * @coversDefaultClass \Today\next\Render\MainContent\HtmlRenderer
+ * @coversDefaultClass \Drupal\next\Render\MainContent\HtmlRenderer
  *
  * @group next
  */

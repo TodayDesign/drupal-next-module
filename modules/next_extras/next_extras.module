@@ -11,7 +11,7 @@ use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
-use Today\next\Entity\NextEntityTypeConfigInterface;
+use Drupal\next\Entity\NextEntityTypeConfigInterface;
 
 /**
  * Implements hook_entity_base_field_info().
@@ -33,7 +33,7 @@ function next_extras_entity_base_field_info(EntityTypeInterface $entity_type) {
  * Implements hook_form_alter().
  */
 function next_extras_form_next_entity_type_config_edit_form_alter(&$form, FormStateInterface $form_state) {
-  /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity */
+  /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity */
   $entity = $form_state->getFormObject()->getEntity();
 
   $form['experimental'] = [
@@ -93,7 +93,7 @@ function next_extras_form_next_entity_type_config_edit_form_builder($entity_type
  */
 function _next_extras_invalidate_entity_cache(EntityInterface $entity, array $paths) {
   @trigger_error(__FUNCTION__ . '() is deprecated in next:1.4.0 and is removed from next:1.5.0. https://www.drupal.org/project/next/releases/1.4.0', E_USER_DEPRECATED);
-  /** @var \Today\next_extras\NextCacheInvalidator $next_cache_invalidator */
+  /** @var \Drupal\next_extras\NextCacheInvalidator $next_cache_invalidator */
   $next_cache_invalidator = \Drupal::service('next_extras.cache_invalidator');
 
   $sites = $next_cache_invalidator->getSitesToInvalidate($entity);

@@ -15,7 +15,7 @@
  */
 
 /**
- * Alter the result of \Today\next\Plugin\SitePreviewerInterface::render.
+ * Alter the result of \Drupal\next\Plugin\SitePreviewerInterface::render.
  *
  * This hook is called after the preview has been assembled.
  *

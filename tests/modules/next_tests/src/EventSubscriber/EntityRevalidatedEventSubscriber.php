@@ -1,10 +1,10 @@
 <?php
 
-namespace Today\next_tests\EventSubscriber;
+namespace Drupal\next_tests\EventSubscriber;
 
 use Drupal\Core\Logger\LoggerChannelInterface;
-use Today\next\Event\EntityEvents;
-use Today\next\Event\EntityRevalidatedEventInterface;
+use Drupal\next\Event\EntityEvents;
+use Drupal\next\Event\EntityRevalidatedEventInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -40,7 +40,7 @@ class EntityRevalidatedEventSubscriber implements EventSubscriberInterface {
   /**
    * Logs the event.
    *
-   * @param \Today\next\Event\EntityRevalidatedEventInterface $event
+   * @param \Drupal\next\Event\EntityRevalidatedEventInterface $event
    *   The event.
    */
   public function onRevalidated(EntityRevalidatedEventInterface $event) {

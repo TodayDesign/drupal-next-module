@@ -3,7 +3,7 @@ parameters:
 
 services:
   jsonapi.entity_resource:
-    class: Today\next_jsonapi\Controller\EntityResource
+    class: Drupal\next_jsonapi\Controller\EntityResource
     arguments:
       - "@entity_type.manager"
       - "@entity_field.manager"

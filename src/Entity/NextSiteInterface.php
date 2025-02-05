@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Entity;
+namespace Drupal\next\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
 use Drupal\Core\Entity\EntityInterface;
@@ -25,7 +25,7 @@ interface NextSiteInterface extends ConfigEntityInterface {
    * @param string $base_url
    *   The base_url.
    *
-   * @return \Today\next\Entity\NextSiteInterface
+   * @return \Drupal\next\Entity\NextSiteInterface
    *   The next_site entity.
    */
   public function setBaseUrl(string $base_url): self;
@@ -44,7 +44,7 @@ interface NextSiteInterface extends ConfigEntityInterface {
    * @param string $preview_url
    *   The preview_url.
    *
-   * @return \Today\next\Entity\NextSiteInterface
+   * @return \Drupal\next\Entity\NextSiteInterface
    *   The next_site entity.
    */
   public function setPreviewUrl(string $preview_url): self;
@@ -63,7 +63,7 @@ interface NextSiteInterface extends ConfigEntityInterface {
    * @param string $preview_secret
    *   The preview_secret.
    *
-   * @return \Today\next\Entity\NextSiteInterface
+   * @return \Drupal\next\Entity\NextSiteInterface
    *   The next_site entity.
    */
   public function setPreviewSecret(string $preview_secret): self;
@@ -104,7 +104,7 @@ interface NextSiteInterface extends ConfigEntityInterface {
    * @param string $revalidate_url
    *   The revalidate_url.
    *
-   * @return \Today\next\Entity\NextSiteInterface
+   * @return \Drupal\next\Entity\NextSiteInterface
    *   The next_site entity.
    */
   public function setRevalidateUrl(string $revalidate_url): self;
@@ -123,7 +123,7 @@ interface NextSiteInterface extends ConfigEntityInterface {
    * @param string $revalidate_secret
    *   The revalidate_secret.
    *
-   * @return \Today\next\Entity\NextSiteInterface
+   * @return \Drupal\next\Entity\NextSiteInterface
    *   The next_site entity.
    */
   public function setRevalidateSecret(string $revalidate_secret): self;

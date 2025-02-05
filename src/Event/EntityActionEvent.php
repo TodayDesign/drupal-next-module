@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Event;
+namespace Drupal\next\Event;
 
 use Drupal\Component\EventDispatcher\Event;
 use Drupal\Core\Entity\EntityInterface;
@@ -8,7 +8,7 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Defines an entity action event.
  *
- * @see \Today\next\Event\EntityEvents
+ * @see \Drupal\next\Event\EntityEvents
  */
 class EntityActionEvent extends Event implements EntityActionEventInterface {
 
@@ -22,7 +22,7 @@ class EntityActionEvent extends Event implements EntityActionEventInterface {
   /**
    * The sites for this entity.
    *
-   * @var \Today\next\Entity\NextSiteInterface[]
+   * @var \Drupal\next\Entity\NextSiteInterface[]
    */
   protected array $sites;
 
@@ -67,11 +67,11 @@ class EntityActionEvent extends Event implements EntityActionEventInterface {
    * @param string $action
    *   The action.
    *
-   * @return \Today\next\Event\EntityActionEvent
+   * @return \Drupal\next\Event\EntityActionEvent
    *   An instance of entity action event.
    */
   public static function createFromEntity(EntityInterface $entity, string $action): self {
-    /** @var \Today\next\NextEntityTypeManagerInterface $next_entity_type_manager */
+    /** @var \Drupal\next\NextEntityTypeManagerInterface $next_entity_type_manager */
     $next_entity_type_manager = \Drupal::service('next.entity_type.manager');
 
     $sites = $next_entity_type_manager->getSitesForEntity($entity);

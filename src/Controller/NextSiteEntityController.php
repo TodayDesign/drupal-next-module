@@ -1,9 +1,9 @@
 <?php
 
-namespace Today\next\Controller;
+namespace Drupal\next\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Today\next\Entity\NextSiteInterface;
+use Drupal\next\Entity\NextSiteInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -41,7 +41,7 @@ class NextSiteEntityController extends ControllerBase {
   /**
    * Returns the build for the environment_variables page.
    *
-   * @param \Today\next\Entity\NextSiteInterface $next_site
+   * @param \Drupal\next\Entity\NextSiteInterface $next_site
    *   The next_site entity.
    *
    * @return array

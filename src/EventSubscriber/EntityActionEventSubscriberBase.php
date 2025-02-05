@@ -1,10 +1,10 @@
 <?php
 
-namespace Today\next\EventSubscriber;
+namespace Drupal\next\EventSubscriber;
 
 use Drupal\Core\Logger\LoggerChannelInterface;
-use Today\next\NextEntityTypeManagerInterface;
-use Today\next\NextSettingsManagerInterface;
+use Drupal\next\NextEntityTypeManagerInterface;
+use Drupal\next\NextSettingsManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
@@ -16,14 +16,14 @@ abstract class EntityActionEventSubscriberBase implements EventSubscriberInterfa
   /**
    * The next entity type manager.
    *
-   * @var \Today\next\NextEntityTypeManagerInterface
+   * @var \Drupal\next\NextEntityTypeManagerInterface
    */
   protected NextEntityTypeManagerInterface $nextEntityTypeManager;
 
   /**
    * The next settings manager.
    *
-   * @var \Today\next\NextSettingsManagerInterface
+   * @var \Drupal\next\NextSettingsManagerInterface
    */
   protected NextSettingsManagerInterface $nextSettingsManager;
 
@@ -44,9 +44,9 @@ abstract class EntityActionEventSubscriberBase implements EventSubscriberInterfa
   /**
    * EntityActionEventSubscriber constructor.
    *
-   * @param \Today\next\NextEntityTypeManagerInterface $next_entity_type_manager
+   * @param \Drupal\next\NextEntityTypeManagerInterface $next_entity_type_manager
    *   The next entity type manager.
-   * @param \Today\next\NextSettingsManagerInterface $next_settings_manager
+   * @param \Drupal\next\NextSettingsManagerInterface $next_settings_manager
    *   The next settings manager.
    * @param \Drupal\Core\Logger\LoggerChannelInterface $logger
    *   The logger channel.

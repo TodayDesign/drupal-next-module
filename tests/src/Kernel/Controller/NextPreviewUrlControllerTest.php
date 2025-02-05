@@ -4,8 +4,8 @@ namespace Drupal\Tests\next\Kernel\Renderer\MainContent;
 
 use Drupal\Component\Serialization\Json;
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Controller\NextPreviewUrlController;
-use Today\next\Entity\NextSite;
+use Drupal\next\Controller\NextPreviewUrlController;
+use Drupal\next\Entity\NextSite;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 use Drupal\Tests\user\Traits\UserCreationTrait;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Tests the NextPreviewUrlController.
  *
- * @coversDefaultClass \Today\next\Controller\NextPreviewUrlController
+ * @coversDefaultClass \Drupal\next\Controller\NextPreviewUrlController
  *
  * @group next
  */
@@ -29,7 +29,7 @@ class NextPreviewUrlControllerTest extends KernelTestBase {
   /**
    * The next_site entity.
    *
-   * @var \Today\next\Entity\NextSiteInterface
+   * @var \Drupal\next\Entity\NextSiteInterface
    */
   protected $nextSite;
 

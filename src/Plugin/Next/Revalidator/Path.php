@@ -1,12 +1,12 @@
 <?php
 
-namespace Today\next\Plugin\Next\Revalidator;
+namespace Drupal\next\Plugin\Next\Revalidator;
 
 use Drupal\Core\Form\FormStateInterface;
-use Today\next\Annotation\Revalidator;
-use Today\next\Event\EntityActionEvent;
-use Today\next\Plugin\ConfigurableRevalidatorBase;
-use Today\next\Plugin\RevalidatorInterface;
+use Drupal\next\Annotation\Revalidator;
+use Drupal\next\Event\EntityActionEvent;
+use Drupal\next\Plugin\ConfigurableRevalidatorBase;
+use Drupal\next\Plugin\RevalidatorInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**

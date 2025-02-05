@@ -3,7 +3,7 @@
 namespace Drupal\Tests\next\Kernel\Entity;
 
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Entity\NextSite;
+use Drupal\next\Entity\NextSite;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 use Drupal\Tests\user\Traits\UserCreationTrait;
 use Drupal\user\Entity\User;
@@ -11,7 +11,7 @@ use Drupal\user\Entity\User;
 /**
  * Tests the next_site entity.
  *
- * @coversDefaultClass \Today\next\Entity\NextSite
+ * @coversDefaultClass \Drupal\next\Entity\NextSite
  *
  * @group next
  */
@@ -27,7 +27,7 @@ class NextSiteTest extends KernelTestBase {
   /**
    * The next_site entity.
    *
-   * @var \Today\next\Entity\NextSiteInterface
+   * @var \Drupal\next\Entity\NextSiteInterface
    */
   protected $nextSite;
 

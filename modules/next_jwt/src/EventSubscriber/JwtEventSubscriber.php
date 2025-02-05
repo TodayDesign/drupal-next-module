@@ -1,11 +1,11 @@
 <?php
 
-namespace Today\next_jwt\EventSubscriber;
+namespace Drupal\next_jwt\EventSubscriber;
 
 use Drupal\Core\Session\AccountInterface;
 use Drupal\jwt\Authentication\Event\JwtAuthEvents;
 use Drupal\jwt\Authentication\Event\JwtAuthGenerateEvent;
-use Today\next\NextSettingsManagerInterface;
+use Drupal\next\NextSettingsManagerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -23,7 +23,7 @@ class JwtEventSubscriber implements EventSubscriberInterface {
   /**
    * The next settings manager.
    *
-   * @var \Today\next\NextSettingsManagerInterface
+   * @var \Drupal\next\NextSettingsManagerInterface
    */
   protected NextSettingsManagerInterface $nextSettingsManager;
 
@@ -32,7 +32,7 @@ class JwtEventSubscriber implements EventSubscriberInterface {
    *
    * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user.
-   * @param \Today\next\NextSettingsManagerInterface $next_settings_manager
+   * @param \Drupal\next\NextSettingsManagerInterface $next_settings_manager
    *   The next settings manager.
    */
   public function __construct(AccountInterface $current_user, NextSettingsManagerInterface $next_settings_manager) {

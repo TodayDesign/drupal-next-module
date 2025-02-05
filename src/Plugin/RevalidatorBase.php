@@ -1,11 +1,11 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Plugin\PluginBase;
-use Today\next\NextSettingsManagerInterface;
+use Drupal\next\NextSettingsManagerInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -32,7 +32,7 @@ abstract class RevalidatorBase extends PluginBase implements RevalidatorInterfac
   /**
    * The next settings manager.
    *
-   * @var \Today\next\NextSettingsManagerInterface
+   * @var \Drupal\next\NextSettingsManagerInterface
    */
   protected NextSettingsManagerInterface $nextSettingsManager;
 
@@ -45,7 +45,7 @@ abstract class RevalidatorBase extends PluginBase implements RevalidatorInterfac
    *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
    *   The plugin implementation definition.
-   * @param \Today\next\NextSettingsManagerInterface $next_settings_manager
+   * @param \Drupal\next\NextSettingsManagerInterface $next_settings_manager
    *   The next settings manager.
    * @param \GuzzleHttp\ClientInterface $http_client
    *   The http client.

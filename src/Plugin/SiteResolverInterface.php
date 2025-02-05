@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Core\Entity\EntityInterface;
 
@@ -36,7 +36,7 @@ interface SiteResolverInterface {
   /**
    * Returns an array of next_site entities for the given entity.
    *
-   * @return \Today\next\Entity\NextSiteInterface[]
+   * @return \Drupal\next\Entity\NextSiteInterface[]
    *   An array of next_site entities.
    */
   public function getSitesForEntity(EntityInterface $entity);

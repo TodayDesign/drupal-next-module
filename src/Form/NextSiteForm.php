@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Form;
+namespace Drupal\next\Form;
 
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
@@ -16,7 +16,7 @@ class NextSiteForm extends EntityForm {
   public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
 
-    /** @var \Today\next\Entity\NextSiteInterface $entity */
+    /** @var \Drupal\next\Entity\NextSiteInterface $entity */
     $entity = $this->entity;
 
     $form['label'] = [
@@ -32,7 +32,7 @@ class NextSiteForm extends EntityForm {
       '#type' => 'machine_name',
       '#default_value' => $entity->id(),
       '#machine_name' => [
-        'exists' => '\Today\next\Entity\NextSite::load',
+        'exists' => '\Drupal\next\Entity\NextSite::load',
       ],
       '#disabled' => !$entity->isNew(),
     ];
@@ -103,7 +103,7 @@ class NextSiteForm extends EntityForm {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state) {
-    /** @var \Today\next\Entity\NextSiteInterface $next_site */
+    /** @var \Drupal\next\Entity\NextSiteInterface $next_site */
     $next_site = $this->entity;
     $status = $next_site->save();
 

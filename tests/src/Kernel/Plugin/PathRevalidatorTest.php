@@ -3,8 +3,8 @@
 namespace Drupal\Tests\next\Kernel\Plugin;
 
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Entity\NextEntityTypeConfig;
-use Today\next\Entity\NextSite;
+use Drupal\next\Entity\NextEntityTypeConfig;
+use Drupal\next\Entity\NextSite;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 use GuzzleHttp\ClientInterface;
 use Prophecy\PhpUnit\ProphecyTrait;
@@ -12,7 +12,7 @@ use Prophecy\PhpUnit\ProphecyTrait;
 /**
  * Tests the path revalidator plugin.
  *
- * @coversDefaultClass \Today\next\Plugin\Next\Revalidator\Path
+ * @coversDefaultClass \Drupal\next\Plugin\Next\Revalidator\Path
  *
  * @group next
  */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next_jwt\Routing;
+namespace Drupal\next_jwt\Routing;
 
 use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;

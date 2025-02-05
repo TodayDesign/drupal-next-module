@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
@@ -8,7 +8,7 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Defines a class to build a listing of next_site entities.
  *
- * @see \Today\next\Entity\NextSite
+ * @see \Drupal\next\Entity\NextSite
  */
 class NextSiteListBuilder extends ConfigEntityListBuilder {
 
@@ -27,7 +27,7 @@ class NextSiteListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /** @var \Today\next\Entity\NextSiteInterface $entity */
+    /** @var \Drupal\next\Entity\NextSiteInterface $entity */
     $row['uuid'] = $entity->uuid();
     $row['id'] = $entity->id();
     $row['label'] = $entity->label();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Core\Plugin\PluginFormInterface;
 

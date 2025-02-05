@@ -7,7 +7,7 @@ use Drupal\KernelTests\KernelTestBase;
 /**
  * Tests the site_resolver plugin manager.
  *
- * @coversDefaultClass \Today\next\Plugin\SiteResolverManager
+ * @coversDefaultClass \Drupal\next\Plugin\SiteResolverManager
  *
  * @group next
  */
@@ -21,7 +21,7 @@ class SiteResolverManagerTest extends KernelTestBase {
   /**
    * The site resolver manager.
    *
-   * @var \Today\next\Plugin\SiteResolverManagerInterface
+   * @var \Drupal\next\Plugin\SiteResolverManagerInterface
    */
   protected $siteResolverManager;
 

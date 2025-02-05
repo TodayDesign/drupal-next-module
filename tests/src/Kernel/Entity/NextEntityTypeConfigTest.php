@@ -3,14 +3,14 @@
 namespace Drupal\Tests\next\Kernel\Plugin;
 
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Entity\NextEntityTypeConfig;
-use Today\next\Entity\NextSite;
+use Drupal\next\Entity\NextEntityTypeConfig;
+use Drupal\next\Entity\NextSite;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 
 /**
  * Tests the next_entity_type_config entity.
  *
- * @coversDefaultClass \Today\next\Entity\NextEntityTypeConfig
+ * @coversDefaultClass \Drupal\next\Entity\NextEntityTypeConfig
  *
  * @group next
  */
@@ -48,7 +48,7 @@ class NextEntityTypeConfigTest extends KernelTestBase {
   /**
    * Tests the site resolver.
    *
-   * @coversClass \Today\next\Entity\NextEntityTypeConfig
+   * @coversClass \Drupal\next\Entity\NextEntityTypeConfig
    */
   public function testSiteResolver() {
     $blog_site = NextSite::create([
@@ -57,7 +57,7 @@ class NextEntityTypeConfigTest extends KernelTestBase {
     $blog_site->save();
 
     // Create entity type config.
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity_type_config */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity_type_config */
     $entity_type_config = NextEntityTypeConfig::create([
       'id' => 'node.page',
       'site_resolver' => 'site_selector',
@@ -121,7 +121,7 @@ class NextEntityTypeConfigTest extends KernelTestBase {
     $blog_site->save();
 
     // Create entity type config.
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity_type_config */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity_type_config */
     $entity_type_config = NextEntityTypeConfig::create([
       'id' => 'node.page',
       'site_resolver' => 'site_selector',

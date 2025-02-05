@@ -1,12 +1,12 @@
 <?php
 
-namespace Today\next_extras;
+namespace Drupal\next_extras;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Url;
-use Today\next\Entity\NextSiteInterface;
-use Today\next\NextEntityTypeManagerInterface;
+use Drupal\next\Entity\NextSiteInterface;
+use Drupal\next\NextEntityTypeManagerInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +19,7 @@ class NextCacheInvalidator {
   /**
    * Next entity type manager service.
    *
-   * @var \Today\next\NextEntityTypeManagerInterface
+   * @var \Drupal\next\NextEntityTypeManagerInterface
    */
   protected NextEntityTypeManagerInterface $nextEntityTypeManager;
 
@@ -40,7 +40,7 @@ class NextCacheInvalidator {
   /**
    * NextCacheInvalidator constructor.
    *
-   * @param \Today\next\NextEntityTypeManagerInterface $nextEntityTypeManager
+   * @param \Drupal\next\NextEntityTypeManagerInterface $nextEntityTypeManager
    *   Next entity type manager service.
    * @param \GuzzleHttp\Client $httpClient
    *   HTTP client service.
@@ -59,7 +59,7 @@ class NextCacheInvalidator {
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity to retrieve sites for.
    *
-   * @return \Today\next\Entity\NextSiteInterface[]
+   * @return \Drupal\next\Entity\NextSiteInterface[]
    *   An array of next sites.
    */
   public function getSitesToInvalidate(EntityInterface $entity): array {
@@ -124,7 +124,7 @@ class NextCacheInvalidator {
    *
    * @param string $path
    *   The path.
-   * @param \Today\next\Entity\NextSiteInterface[] $sites
+   * @param \Drupal\next\Entity\NextSiteInterface[] $sites
    *   The site for which to revalidate.
    */
   public function invalidatePath(string $path, array $sites): void {
@@ -151,7 +151,7 @@ class NextCacheInvalidator {
   /**
    * Builds the invalidation request URL.
    *
-   * @param \Today\next\Entity\NextSiteInterface $site
+   * @param \Drupal\next\Entity\NextSiteInterface $site
    *   The Next site.
    * @param string $path
    *   The path.

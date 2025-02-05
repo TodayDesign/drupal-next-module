@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Event;
+namespace Drupal\next\Event;
 
 /**
  * Defines entity events.
@@ -16,15 +16,15 @@ final class EntityEvents {
    * @see next_entity_update()
    * @see next_entity_predelete()
    *
-   * @see \Today\next\Event\EntityActionEvent
+   * @see \Drupal\next\Event\EntityActionEvent
    */
   public const ENTITY_ACTION = 'next.entity.action';
 
   /**
    * Name of the event fired when an entity is revalidated.
    *
-   * @see \Today\next\Event\EntityRevalidatedEvent
-   * @see \Today\next\EventSubscriber\EntityActionEventRevalidateSubscriber::onAction()
+   * @see \Drupal\next\Event\EntityRevalidatedEvent
+   * @see \Drupal\next\EventSubscriber\EntityActionEventRevalidateSubscriber::onAction()
    */
   public const ENTITY_REVALIDATED = 'next.entity.revalidated';
 

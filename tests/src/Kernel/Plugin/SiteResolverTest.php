@@ -3,15 +3,15 @@
 namespace Drupal\Tests\next\Kernel\Plugin;
 
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Entity\NextEntityTypeConfig;
-use Today\next\Entity\NextSite;
+use Drupal\next\Entity\NextEntityTypeConfig;
+use Drupal\next\Entity\NextSite;
 use Drupal\node\Entity\NodeType;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 
 /**
  * Tests the site_resolver plugin.
  *
- * @coversDefaultClass \Today\next\Plugin\Next\SiteResolver\SiteSelector
+ * @coversDefaultClass \Drupal\next\Plugin\Next\SiteResolver\SiteSelector
  *
  * @group next
  */
@@ -88,7 +88,7 @@ class SiteResolverTest extends KernelTestBase {
   public function testGetSitesForEntity() {
     $page = $this->createNode(['type' => 'page']);
 
-    /** @var \Today\next\NextEntityTypeManagerInterface $next_entity_type_manager */
+    /** @var \Drupal\next\NextEntityTypeManagerInterface $next_entity_type_manager */
     $next_entity_type_manager = $this->container->get('next.entity_type.manager');
     $next_entity_type_config = $next_entity_type_manager->getConfigForEntityType($page->getEntityTypeId(), $page->bundle());
     $site_resolver = $next_entity_type_config->getSiteResolver();

@@ -3,16 +3,16 @@
 namespace Drupal\Tests\next\Kernel\Plugin;
 
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Entity\NextEntityTypeConfig;
-use Today\next\Entity\NextSite;
-use Today\next\Plugin\Next\PreviewUrlGenerator\SimpleOauth;
-use Today\next\Plugin\Next\SitePreviewer\Iframe;
+use Drupal\next\Entity\NextEntityTypeConfig;
+use Drupal\next\Entity\NextSite;
+use Drupal\next\Plugin\Next\PreviewUrlGenerator\SimpleOauth;
+use Drupal\next\Plugin\Next\SitePreviewer\Iframe;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 
 /**
  * Tests the next.entity_type.manager service.
  *
- * @coversDefaultClass \Today\next\NextEntityTypeManager
+ * @coversDefaultClass \Drupal\next\NextEntityTypeManager
  *
  * @group next
  */

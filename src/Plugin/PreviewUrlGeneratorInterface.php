@@ -1,10 +1,10 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Url;
-use Today\next\Entity\NextSiteInterface;
+use Drupal\next\Entity\NextSiteInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -39,7 +39,7 @@ interface PreviewUrlGeneratorInterface {
   /**
    * Generates a preview url for the given next_site and entity.
    *
-   * @param \Today\next\Entity\NextSiteInterface $next_site
+   * @param \Drupal\next\Entity\NextSiteInterface $next_site
    *   The next site entity.
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity being previewed.
@@ -57,7 +57,7 @@ interface PreviewUrlGeneratorInterface {
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   The http request.
    *
-   * @throws \Today\next\Exception\InvalidPreviewUrlRequest
+   * @throws \Drupal\next\Exception\InvalidPreviewUrlRequest
    */
   public function validate(Request $request);
 

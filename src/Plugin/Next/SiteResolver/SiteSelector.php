@@ -1,13 +1,13 @@
 <?php
 
-namespace Today\next\Plugin\Next\SiteResolver;
+namespace Drupal\next\Plugin\Next\SiteResolver;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Today\next\Plugin\ConfigurableSiteResolverBase;
+use Drupal\next\Plugin\ConfigurableSiteResolverBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -70,7 +70,7 @@ class SiteSelector extends ConfigurableSiteResolverBase implements ContainerFact
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
-    /** @var \Today\next\Entity\NextSiteInterface[] $sites */
+    /** @var \Drupal\next\Entity\NextSiteInterface[] $sites */
     $sites = $this->entityTypeManager->getStorage('next_site')->loadMultiple();
 
     if (!count($sites)) {

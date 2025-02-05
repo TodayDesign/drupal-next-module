@@ -1,9 +1,9 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Core\Entity\EntityInterface;
-use Today\next\Event\EntityActionEvent;
+use Drupal\next\Event\EntityActionEvent;
 
 /**
  * Defines an interface for the revalidator plugin.
@@ -37,7 +37,7 @@ interface RevalidatorInterface {
   /**
    * Revalidates an entity.
    *
-   * @param \Today\next\Event\EntityActionEvent $event
+   * @param \Drupal\next\Event\EntityActionEvent $event
    *   The entity action event.
    *
    * @return bool

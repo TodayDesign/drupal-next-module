@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Form;
+namespace Drupal\next\Form;
 
 use Drupal\Core\Entity\ContentEntityTypeInterface;
 use Drupal\Core\Entity\EntityForm;
@@ -9,10 +9,10 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\SubformState;
-use Today\next\Plugin\ConfigurableRevalidatorInterface;
-use Today\next\Plugin\ConfigurableSiteResolverInterface;
-use Today\next\Plugin\RevalidatorManagerInterface;
-use Today\next\Plugin\SiteResolverManagerInterface;
+use Drupal\next\Plugin\ConfigurableRevalidatorInterface;
+use Drupal\next\Plugin\ConfigurableSiteResolverInterface;
+use Drupal\next\Plugin\RevalidatorManagerInterface;
+use Drupal\next\Plugin\SiteResolverManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -30,7 +30,7 @@ class NextEntityTypeConfigForm extends EntityForm {
   /**
    * The site resolver manager.
    *
-   * @var \Today\next\Plugin\SiteResolverManagerInterface
+   * @var \Drupal\next\Plugin\SiteResolverManagerInterface
    */
   protected $siteResolverManager;
 
@@ -44,7 +44,7 @@ class NextEntityTypeConfigForm extends EntityForm {
   /**
    * The revalidator manager.
    *
-   * @var \Today\next\Plugin\RevalidatorManagerInterface
+   * @var \Drupal\next\Plugin\RevalidatorManagerInterface
    */
   protected $revalidatorManager;
 
@@ -55,9 +55,9 @@ class NextEntityTypeConfigForm extends EntityForm {
    *   The entity type manager.
    * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
    *   The entity type bundle info.
-   * @param \Today\next\Plugin\SiteResolverManagerInterface $site_resolver_manager
+   * @param \Drupal\next\Plugin\SiteResolverManagerInterface $site_resolver_manager
    *   The site resolver manager.
-   * @param \Today\next\Plugin\RevalidatorManagerInterface $revalidator_manager
+   * @param \Drupal\next\Plugin\RevalidatorManagerInterface $revalidator_manager
    *   The revalidator manager.
    */
   public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info, SiteResolverManagerInterface $site_resolver_manager, RevalidatorManagerInterface $revalidator_manager = NULL) {
@@ -85,7 +85,7 @@ class NextEntityTypeConfigForm extends EntityForm {
   public function form(array $form, FormStateInterface $form_state) {
     $form = parent::form($form, $form_state);
 
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity */
     $entity = $this->entity;
 
     $form['id'] = [
@@ -245,7 +245,7 @@ class NextEntityTypeConfigForm extends EntityForm {
   public function validateForm(array &$form, FormStateInterface $form_state) {
     parent::validateForm($form, $form_state);
 
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity */
     $entity = $this->entity;
 
     // Validate already configured entity types.
@@ -271,7 +271,7 @@ class NextEntityTypeConfigForm extends EntityForm {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     parent::submitForm($form, $form_state);
 
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity */
     $entity = $this->entity;
     $site_resolver = $entity->getSiteResolver();
     $revalidator = $entity->getRevalidator();
@@ -292,7 +292,7 @@ class NextEntityTypeConfigForm extends EntityForm {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state) {
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity */
     $entity = $this->entity;
     $status = $entity->save();
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Core\Entity\EntityInterface;
 
@@ -38,7 +38,7 @@ interface SitePreviewerInterface {
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity.
-   * @param \Today\next\Entity\NextSiteInterface[] $sites
+   * @param \Drupal\next\Entity\NextSiteInterface[] $sites
    *   An array of next_site entities.
    *
    * @return array

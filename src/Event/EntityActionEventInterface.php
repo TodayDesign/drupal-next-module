@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Event;
+namespace Drupal\next\Event;
 
 use Drupal\Core\Entity\EntityInterface;
 
@@ -38,7 +38,7 @@ interface EntityActionEventInterface {
    * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity.
    *
-   * @return \Today\next\Event\EntityActionEventInterface
+   * @return \Drupal\next\Event\EntityActionEventInterface
    *   The event entity.
    */
   public function setEntity(EntityInterface $entity): self;
@@ -46,7 +46,7 @@ interface EntityActionEventInterface {
   /**
    * Get the sites for the entity.
    *
-   * @return \Today\next\Entity\NextSiteInterface[]
+   * @return \Drupal\next\Entity\NextSiteInterface[]
    *   The sites for the entity.
    */
   public function getSites(): array;
@@ -54,10 +54,10 @@ interface EntityActionEventInterface {
   /**
    * Sets the sites.
    *
-   * @param \Today\next\Entity\NextSiteInterface[] $sites
+   * @param \Drupal\next\Entity\NextSiteInterface[] $sites
    *   An array of next_site entities.
    *
-   * @return \Today\next\Event\EntityActionEventInterface
+   * @return \Drupal\next\Event\EntityActionEventInterface
    *   The event entity.
    */
   public function setSites(array $sites): self;
@@ -76,7 +76,7 @@ interface EntityActionEventInterface {
    * @param string $action
    *   The action.
    *
-   * @return \Today\next\Event\EntityActionEventInterface
+   * @return \Drupal\next\Event\EntityActionEventInterface
    *   The event entity.
    */
   public function setAction(string $action): self;
@@ -95,7 +95,7 @@ interface EntityActionEventInterface {
    * @param string $url
    *   The entity url.
    *
-   * @return \Today\next\Event\EntityActionEventInterface
+   * @return \Drupal\next\Event\EntityActionEventInterface
    *   The event entity.
    */
   public function setEntityUrl(string $url): self;

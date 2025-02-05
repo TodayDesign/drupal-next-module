@@ -1,11 +1,11 @@
 <?php
 
-namespace Today\next\Plugin;
+namespace Drupal\next\Plugin;
 
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
-use Today\next\Annotation\SiteResolver;
+use Drupal\next\Annotation\SiteResolver;
 
 /**
  * Plugin manager for site resolvers.

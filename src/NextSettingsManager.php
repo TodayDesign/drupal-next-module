@@ -1,14 +1,14 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 use Drupal\Component\Plugin\Exception\PluginException;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\ImmutableConfig;
-use Today\next\Plugin\PreviewUrlGeneratorInterface;
-use Today\next\Plugin\PreviewUrlGeneratorManagerInterface;
-use Today\next\Plugin\SitePreviewerInterface;
-use Today\next\Plugin\SitePreviewerManagerInterface;
+use Drupal\next\Plugin\PreviewUrlGeneratorInterface;
+use Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface;
+use Drupal\next\Plugin\SitePreviewerInterface;
+use Drupal\next\Plugin\SitePreviewerManagerInterface;
 
 /**
  * Provides a service for next settings.
@@ -25,14 +25,14 @@ class NextSettingsManager implements NextSettingsManagerInterface {
   /**
    * The site previewer plugin manager.
    *
-   * @var \Today\next\Plugin\SitePreviewerManagerInterface
+   * @var \Drupal\next\Plugin\SitePreviewerManagerInterface
    */
   protected SitePreviewerManagerInterface $sitePreviewerManager;
 
   /**
    * The preview url generator plugin manager.
    *
-   * @var \Today\next\Plugin\PreviewUrlGeneratorManagerInterface
+   * @var \Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface
    */
   protected PreviewUrlGeneratorManagerInterface $previewUrlGeneratorManager;
 
@@ -41,9 +41,9 @@ class NextSettingsManager implements NextSettingsManagerInterface {
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config
    *   The config service.
-   * @param \Today\next\Plugin\SitePreviewerManagerInterface $site_previewer_manager
+   * @param \Drupal\next\Plugin\SitePreviewerManagerInterface $site_previewer_manager
    *   The site previewer plugin manager.
-   * @param \Today\next\Plugin\PreviewUrlGeneratorManagerInterface $preview_url_generator_manager
+   * @param \Drupal\next\Plugin\PreviewUrlGeneratorManagerInterface $preview_url_generator_manager
    *   The preview url generator plugin manager.
    */
   public function __construct(ConfigFactoryInterface $config, SitePreviewerManagerInterface $site_previewer_manager, PreviewUrlGeneratorManagerInterface $preview_url_generator_manager) {
@@ -80,7 +80,7 @@ class NextSettingsManager implements NextSettingsManagerInterface {
     $site_previewer_id = $this->get('site_previewer');
 
     try {
-      /** @var \Today\next\Plugin\SitePreviewerInterface $site_previewer */
+      /** @var \Drupal\next\Plugin\SitePreviewerInterface $site_previewer */
       $site_previewer = $this->sitePreviewerManager->createInstance($site_previewer_id, $this->get('site_previewer_configuration') ?? []);
 
       return $site_previewer;
@@ -99,7 +99,7 @@ class NextSettingsManager implements NextSettingsManagerInterface {
     $preview_url_generator_id = $this->get('preview_url_generator');
 
     try {
-      /** @var \Today\next\Plugin\PreviewUrlGeneratorInterface $preview_url_generator */
+      /** @var \Drupal\next\Plugin\PreviewUrlGeneratorInterface $preview_url_generator */
       $preview_url_generator = $this->previewUrlGeneratorManager->createInstance($preview_url_generator_id, $this->get('preview_url_generator_configuration') ?? []);
 
       return $preview_url_generator;

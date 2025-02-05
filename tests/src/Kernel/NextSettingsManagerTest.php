@@ -3,13 +3,13 @@
 namespace Drupal\Tests\next\Kernel\Plugin;
 
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Plugin\Next\PreviewUrlGenerator\SimpleOauth;
-use Today\next\Plugin\Next\SitePreviewer\Iframe;
+use Drupal\next\Plugin\Next\PreviewUrlGenerator\SimpleOauth;
+use Drupal\next\Plugin\Next\SitePreviewer\Iframe;
 
 /**
  * Tests the next.settings.manager service.
  *
- * @coversDefaultClass \Today\next\NextSettingsManager
+ * @coversDefaultClass \Drupal\next\NextSettingsManager
  *
  * @group next
  */
@@ -23,7 +23,7 @@ class NextSettingsManagerTest extends KernelTestBase {
   /**
    * The next settings manager.
    *
-   * @var \Today\next\NextSettingsManagerInterface
+   * @var \Drupal\next\NextSettingsManagerInterface
    */
   protected $nextSettingsManager;
 

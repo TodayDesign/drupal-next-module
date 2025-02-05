@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Plugin\Next\SitePreviewer;
+namespace Drupal\next\Plugin\Next\SitePreviewer;
 
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Entity\EntityInterface;
@@ -11,8 +11,8 @@ use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Url;
-use Today\next\Form\IframeSitePreviewerSwitcherForm;
-use Today\next\Plugin\ConfigurableSitePreviewerBase;
+use Drupal\next\Form\IframeSitePreviewerSwitcherForm;
+use Drupal\next\Plugin\ConfigurableSitePreviewerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 

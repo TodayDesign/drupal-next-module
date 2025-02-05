@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next;
+namespace Drupal\next;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
@@ -8,13 +8,13 @@ use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Today\next\Plugin\SiteResolverManagerInterface;
+use Drupal\next\Plugin\SiteResolverManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Defines a class to build a listing of next_entity_type_config entities.
  *
- * @see \Today\next\Entity\NextEntityTypeConfig
+ * @see \Drupal\next\Entity\NextEntityTypeConfig
  */
 class NextEntityTypeConfigListBuilder extends ConfigEntityListBuilder {
 
@@ -35,7 +35,7 @@ class NextEntityTypeConfigListBuilder extends ConfigEntityListBuilder {
   /**
    * The site resolver plugin manager.
    *
-   * @var \Today\next\Plugin\SiteResolverManagerInterface
+   * @var \Drupal\next\Plugin\SiteResolverManagerInterface
    */
   protected $siteResolverManager;
 
@@ -50,7 +50,7 @@ class NextEntityTypeConfigListBuilder extends ConfigEntityListBuilder {
    *   The entity type manager.
    * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
    *   The entity type bundle info.
-   * @param \Today\next\Plugin\SiteResolverManagerInterface $site_resolver_manager
+   * @param \Drupal\next\Plugin\SiteResolverManagerInterface $site_resolver_manager
    *   The site resolver plugin manager.
    */
   public function __construct(EntityTypeInterface $entity_type, EntityStorageInterface $storage, EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info, SiteResolverManagerInterface $site_resolver_manager) {
@@ -100,7 +100,7 @@ class NextEntityTypeConfigListBuilder extends ConfigEntityListBuilder {
    * {@inheritdoc}
    */
   public function buildRow(EntityInterface $entity) {
-    /** @var \Today\next\Entity\NextEntityTypeConfigInterface $entity */
+    /** @var \Drupal\next\Entity\NextEntityTypeConfigInterface $entity */
     [$entity_type_id, $bundle] = explode('.', $entity->id());
     $entity_type = $this->entityTypeManager->getDefinition($entity_type_id);
     $bundle_info = $this->entityTypeBundleInfo->getBundleInfo($entity_type_id);
@@ -111,7 +111,7 @@ class NextEntityTypeConfigListBuilder extends ConfigEntityListBuilder {
     $row['summary'] = [];
     $row['revalidator'] = '';
 
-    /** @var \Today\next\Plugin\SiteResolverInterface $site_resolver */
+    /** @var \Drupal\next\Plugin\SiteResolverInterface $site_resolver */
     if ($site_resolver = $entity->getSiteResolver()) {
       $row['site_resolver'] = $site_resolver->getLabel();
       $row['summary'] = [];

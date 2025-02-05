@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next\Form;
+namespace Drupal\next\Form;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormBase;
@@ -48,7 +48,7 @@ class IframeSitePreviewerSwitcherForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, EntityInterface $entity = NULL, array $sites = [], string $site_id = NULL) {
-    /** @var \Today\next\Entity\NextSiteInterface[] $sites */
+    /** @var \Drupal\next\Entity\NextSiteInterface[] $sites */
     $site_options = [];
     foreach ($sites as $site) {
       $site_options[$site->id()] = $site->label();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Today\next_extras\Plugin\Field\FieldType;
+namespace Drupal\next_extras\Plugin\Field\FieldType;
 
 use Drupal\Core\Field\FieldItemList;
 use Drupal\Core\TypedData\ComputedItemListTrait;

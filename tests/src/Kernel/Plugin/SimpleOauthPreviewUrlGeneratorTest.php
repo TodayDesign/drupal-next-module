@@ -4,8 +4,8 @@ namespace Drupal\Tests\next\Kernel\Plugin;
 
 use Drupal\Component\Serialization\Json;
 use Drupal\KernelTests\KernelTestBase;
-use Today\next\Entity\NextEntityTypeConfig;
-use Today\next\Entity\NextSite;
+use Drupal\next\Entity\NextEntityTypeConfig;
+use Drupal\next\Entity\NextSite;
 use Drupal\Tests\node\Traits\NodeCreationTrait;
 use Drupal\Tests\user\Traits\UserCreationTrait;
 use Drupal\user\Entity\User;
@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Tests the preview_url_generator plugin.
  *
- * @coversDefaultClass \Today\next\Plugin\Next\PreviewUrlGenerator\SimpleOauth
+ * @coversDefaultClass \Drupal\next\Plugin\Next\PreviewUrlGenerator\SimpleOauth
  *
  * @group next
  */
@@ -30,7 +30,7 @@ class SimpleOauthPreviewUrlGeneratorTest extends KernelTestBase {
   /**
    * The next site.
    *
-   * @var \Today\next\Entity\NextSiteInterface
+   * @var \Drupal\next\Entity\NextSiteInterface
    */
   protected $nextSite;
 
@@ -94,7 +94,7 @@ class SimpleOauthPreviewUrlGeneratorTest extends KernelTestBase {
     $this->assertContains($query['scope'], $user->getRoles());
 
     // Test the secret.
-    /** @var \Today\next\PreviewSecretGeneratorInterface $secret_generator */
+    /** @var \Drupal\next\PreviewSecretGeneratorInterface $secret_generator */
     $secret_generator = \Drupal::service('next.preview_secret_generator');
     $this->assertSame($query['secret'], $secret_generator->generate($query['timestamp'] . $query['slug'] . $query['scope'] . $query['resourceVersion']));
   }
@@ -104,9 +104,9 @@ class SimpleOauthPreviewUrlGeneratorTest extends KernelTestBase {
    * @covers ::getAdminRole
    */
   public function testCurrentUserScopes() {
-    /** @var \Today\next\NextSettingsManagerInterface $next_settings_manager */
+    /** @var \Drupal\next\NextSettingsManagerInterface $next_settings_manager */
     $next_settings_manager = $this->container->get('next.settings.manager');
-    /** @var \Today\next\Plugin\Next\PreviewUrlGenerator\SimpleOauth $preview_url_generator */
+    /** @var \Drupal\next\Plugin\Next\PreviewUrlGenerator\SimpleOauth $preview_url_generator */
     $preview_url_generator = $next_settings_manager->getPreviewUrlGenerator();
 
     $page = $this->createNode(['type' => 'page']);
@@ -138,7 +138,7 @@ class SimpleOauthPreviewUrlGeneratorTest extends KernelTestBase {
   public function testValidateForInvalidBody($body, $message, $is_valid = FALSE) {
     $request = Request::create('/', 'POST', [], [], [], [], Json::encode($body));
 
-    /** @var \Today\next\NextSettingsManagerInterface $next_settings_manager */
+    /** @var \Drupal\next\NextSettingsManagerInterface $next_settings_manager */
     $next_settings_manager = $this->container->get('next.settings.manager');
     $preview_url_generator = $next_settings_manager->getPreviewUrlGenerator();
 
@@ -160,7 +160,7 @@ class SimpleOauthPreviewUrlGeneratorTest extends KernelTestBase {
 
     $request = Request::create('/', 'POST', [], [], [], [], Json::encode($query));
 
-    /** @var \Today\next\NextSettingsManagerInterface $next_settings_manager */
+    /** @var \Drupal\next\NextSettingsManagerInterface $next_settings_manager */
     $next_settings_manager = $this->container->get('next.settings.manager');
     $preview_url_generator = $next_settings_manager->getPreviewUrlGenerator();
 
