@@ -279,7 +279,12 @@ class NextSite extends ConfigEntityBase implements NextSiteInterface {
       $query['secret'] = $secret;
     }
 
-    return Url::fromUri($this->getRevalidateUrl(), [
+    // If the revalidate url contains "localhost", replace with docker host.
+    if (strpos($revalidate_url, 'localhost') !== false) {
+      $revalidate_url = str_replace('localhost', 'host.docker.internal', $revalidate_url);
+    }
+
+    return Url::fromUri($revalidate_url, [
       'query' => $query,
     ]);
   }
