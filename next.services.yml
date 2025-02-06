@@ -65,3 +65,6 @@ services:
       ]
     tags:
       - { name: event_subscriber }
+  next.path_variable_replacer:
+    class: Drupal\next\PathVariableReplacer
+    arguments: ['@entity_type.manager', '@entity.repository', '@logger.factory']

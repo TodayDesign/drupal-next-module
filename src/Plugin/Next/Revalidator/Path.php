@@ -74,11 +74,42 @@ class Path extends ConfigurableRevalidatorBase implements RevalidatorInterface {
 
     $paths = [];
     if (!empty($this->configuration['revalidate_page'])) {
-      $paths[] = $event->getEntityUrl();
+      $paths[] = [$event->getEntityUrl()];
     }
+
     if (!empty($this->configuration['additional_paths'])) {
-      $paths = array_merge($paths, array_map('trim', explode("\n", $this->configuration['additional_paths'])));
+      $additional_paths = array_map('trim', explode("\n", $this->configuration['additional_paths']));
+      $entity = $event->getEntity();
+
+      /** @var \Drupal\next\PathVariableReplacer $replacer */
+      $replacer = \Drupal::service('next.path_variable_replacer');
+
+      foreach ($additional_paths as $additional_path) {
+        $paths[] = $replacer->replacePath($additional_path, $entity);
+      }
     }
+
+    // Flatten the array.
+    $paths = array_merge(...$paths);
+
+    // Make them unique. and all lowercase.
+    $paths = array_map('strtolower', array_unique(array_map('Drupal\Component\Utility\UrlHelper::filterBadProtocol', $paths)));
+
+    // Replace spaces with '-'.
+    $paths = array_map(function ($path) {
+      return str_replace(' ', '-', $path);
+    }, $paths);
+
+    // Replace any '/node/' with '/'.
+    $paths = array_map(function ($path) {
+      return str_replace('/node/', '/', $path);
+    }, $paths);
+
+    // Print the paths.
+    $this->logger->notice('(@action): Paths: %paths', [
+      '@action' => $event->getAction(),
+      '%paths' => json_encode($paths),
+    ]);
 
     if (!count($paths)) {
       return FALSE;
