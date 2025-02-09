@@ -100,9 +100,9 @@ class Path extends ConfigurableRevalidatorBase implements RevalidatorInterface {
       return str_replace(' ', '-', $path);
     }, $paths);
 
-    // Replace any '/node/' with '/'.
+    // If path is /node, replace it with /.
     $paths = array_map(function ($path) {
-      return str_replace('/node/', '/', $path);
+      return $path === '/node' ? '/' : $path;
     }, $paths);
 
     // Print the paths.
