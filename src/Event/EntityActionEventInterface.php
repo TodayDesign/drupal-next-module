@@ -100,4 +100,23 @@ interface EntityActionEventInterface {
    */
   public function setEntityUrl(string $url): self;
 
+  /**
+   * Gets the original url for the entity before the update.
+   *
+   * @return string|null
+   *   The original entity url.
+   */
+  public function getOriginalEntityUrl(): ?string;
+
+  /**
+   * Sets the original url for the entity before the update.
+   *
+   * @param string $url
+   *   The original entity url.
+   *
+   * @return \Drupal\next\Event\EntityActionEventInterface
+   *   The event entity.
+   */
+  public function setOriginalEntityUrl(string $url): self;
+
 }

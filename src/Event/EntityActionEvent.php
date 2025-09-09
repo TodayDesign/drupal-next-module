@@ -41,6 +41,13 @@ class EntityActionEvent extends Event implements EntityActionEventInterface {
   protected ?string $entityUrl;
 
   /**
+   * The original entity URL before update.
+   *
+   * @var string|null
+   */
+  protected ?string $originalEntityUrl;
+
+  /**
    * EntityActionEvent constructor.
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity
@@ -57,6 +64,7 @@ class EntityActionEvent extends Event implements EntityActionEventInterface {
     $this->action = $action;
     $this->sites = $sites;
     $this->entityUrl = $entity_url;
+    $this->originalEntityUrl = NULL;
   }
 
   /**
@@ -137,6 +145,21 @@ class EntityActionEvent extends Event implements EntityActionEventInterface {
    */
   public function setEntityUrl(string $url): EntityActionEventInterface {
     $this->entityUrl = $url;
+    return $this;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getOriginalEntityUrl(): ?string {
+    return $this->originalEntityUrl;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setOriginalEntityUrl(string $url): EntityActionEventInterface {
+    $this->originalEntityUrl = $url;
     return $this;
   }
 

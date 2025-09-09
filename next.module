@@ -73,11 +73,68 @@ function next_entity_insert(EntityInterface $entity) {
 }
 
 /**
+ * Implements hook_entity_presave().
+ */
+function next_entity_presave(EntityInterface $entity) {
+  // Store the original URL before the entity is saved for update operations.
+  if (!$entity->isNew() && $entity->hasLinkTemplate('canonical')) {
+    $original_url = NULL;
+    
+    try {
+      // Load the original entity from the database to get the current URL alias.
+      $entity_storage = \Drupal::entityTypeManager()->getStorage($entity->getEntityTypeId());
+      $original_entity = $entity_storage->load($entity->id());
+      
+      if ($original_entity && $original_entity->hasLinkTemplate('canonical')) {
+        $original_url = $original_entity->toUrl()->toString(TRUE)->getGeneratedUrl();
+      }
+    } catch (\Exception $e) {
+      // Fallback to entity->original if available.
+      if (isset($entity->original) && $entity->original->hasLinkTemplate('canonical')) {
+        $original_url = $entity->original->toUrl()->toString(TRUE)->getGeneratedUrl();
+      }
+    }
+    
+    // Store in static variable to access later in hook_entity_update.
+    $original_urls = &drupal_static('next_original_urls', []);
+    $original_urls[$entity->uuid()] = $original_url;
+    
+    // Add debug logging.
+    if (\Drupal::service('next.settings.manager')->isDebug()) {
+      \Drupal::logger('next')->notice('Presave: Captured original URL for entity %id: %url', [
+        '%id' => $entity->id(),
+        '%url' => $original_url ?: 'NULL',
+      ]);
+    }
+  }
+}
+
+/**
  * Implements hook_entity_update().
  */
 function next_entity_update(EntityInterface $entity) {
+  $original_urls = &drupal_static('next_original_urls', []);
+  $original_url = $original_urls[$entity->uuid()] ?? NULL;
+  
   $event = EntityActionEvent::createFromEntity($entity, EntityActionEventInterface::UPDATE_ACTION);
+  if ($original_url) {
+    $event->setOriginalEntityUrl($original_url);
+  }
+  
+  // Add debug logging.
+  if (\Drupal::service('next.settings.manager')->isDebug()) {
+    $current_url = $event->getEntityUrl();
+    \Drupal::logger('next')->notice('Update: Entity %id - Original URL: %original_url, Current URL: %current_url', [
+      '%id' => $entity->id(),
+      '%original_url' => $original_url ?: 'NULL',
+      '%current_url' => $current_url ?: 'NULL',
+    ]);
+  }
+  
   drupal_register_shutdown_function('_next_dispatch_entity_action_event', $event);
+  
+  // Clean up the static variable.
+  unset($original_urls[$entity->uuid()]);
 }
 
 /**

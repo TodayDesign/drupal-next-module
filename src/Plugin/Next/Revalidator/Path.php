@@ -74,7 +74,18 @@ class Path extends ConfigurableRevalidatorBase implements RevalidatorInterface {
 
     $paths = [];
     if (!empty($this->configuration['revalidate_page'])) {
-      $paths[] = [$event->getEntityUrl()];
+      $current_url = $event->getEntityUrl();
+      $original_url = $event->getOriginalEntityUrl();
+      
+      // Always add the current URL.
+      if ($current_url) {
+        $paths[] = [$current_url];
+      }
+      
+      // Add the original URL if it's different from the current URL (URL alias changed).
+      if ($original_url && $original_url !== $current_url) {
+        $paths[] = [$original_url];
+      }
     }
 
     if (!empty($this->configuration['additional_paths'])) {
@@ -92,6 +103,15 @@ class Path extends ConfigurableRevalidatorBase implements RevalidatorInterface {
     // Flatten the array.
     $paths = array_merge(...$paths);
 
+    // Add parent paths for each path.
+    $paths_with_parents = [];
+    foreach ($paths as $path) {
+      $paths_with_parents[] = $path;
+      $paths_with_parents = array_merge($paths_with_parents, $this->getParentPaths($path));
+    }
+    
+    $paths = $paths_with_parents;
+
     // Make them unique. and all lowercase.
     $paths = array_map('strtolower', array_unique(array_map('Drupal\Component\Utility\UrlHelper::filterBadProtocol', $paths)));
 
@@ -106,10 +126,21 @@ class Path extends ConfigurableRevalidatorBase implements RevalidatorInterface {
     }, $paths);
 
     // Print the paths.
-    $this->logger->notice('(@action): Paths: %paths', [
-      '@action' => $event->getAction(),
-      '%paths' => json_encode($paths),
-    ]);
+    $original_url = $event->getOriginalEntityUrl();
+    $current_url = $event->getEntityUrl();
+    if ($original_url && $original_url !== $current_url) {
+      $this->logger->notice('(@action): URL alias changed from %original_url to %current_url. Paths to revalidate (including parents): %paths', [
+        '@action' => $event->getAction(),
+        '%original_url' => $original_url,
+        '%current_url' => $current_url,
+        '%paths' => json_encode($paths),
+      ]);
+    } else {
+      $this->logger->notice('(@action): Paths to revalidate (including parents): %paths', [
+        '@action' => $event->getAction(),
+        '%paths' => json_encode($paths),
+      ]);
+    }
 
     if (!count($paths)) {
       return FALSE;
@@ -155,6 +186,44 @@ class Path extends ConfigurableRevalidatorBase implements RevalidatorInterface {
     }
 
     return $revalidated;
+  }
+
+  /**
+   * Get all parent paths for a given path.
+   *
+   * @param string $path
+   *   The path to get parent paths for.
+   *
+   * @return array
+   *   An array of parent paths.
+   */
+  protected function getParentPaths(string $path): array {
+    $parent_paths = [];
+    
+    // Remove trailing slash if present.
+    $path = rtrim($path, '/');
+    
+    // If path is empty or just '/', no parent paths.
+    if (empty($path) || $path === '/') {
+      return $parent_paths;
+    }
+    
+    // Split the path into segments.
+    $segments = explode('/', trim($path, '/'));
+    
+    // Generate parent paths by removing segments from the end.
+    for ($i = count($segments) - 1; $i > 0; $i--) {
+      $parent_segments = array_slice($segments, 0, $i);
+      $parent_path = '/' . implode('/', $parent_segments);
+      $parent_paths[] = $parent_path;
+    }
+    
+    // Always include the root path as the ultimate parent.
+    if (!in_array('/', $parent_paths) && $path !== '/') {
+      $parent_paths[] = '/';
+    }
+    
+    return $parent_paths;
   }
 
 }
