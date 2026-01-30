@@ -9,6 +9,6 @@ dependencies:
   - next:next
 
 # Information added by Drupal.org packaging script on 2023-04-20
-version: '1.6.3'
+version: '1.6.4'
 project: 'next'
 datestamp: 1681968863
